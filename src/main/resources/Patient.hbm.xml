@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="com.eastnetic.demo.entity.Patient" table="patient">
+    <id name="patientPk" type="long">
+      <column name="patient_pk"/>
+      <generator class="identity" />
+    </id>
+    <property name="personCode" type="string">
+      <column name="person_code" not-null="true" length="30">
+        <comment>Unique person code for each patient</comment>
+      </column>
+    </property>
+    <property name="firstName" type="string">
+      <column name="first_name" not-null="true" length="50">
+        <comment>First name of the patient</comment>
+      </column>
+    </property>
+    <property name="lastName" type="string">
+      <column name="last_name" not-null="true" length="50">
+        <comment>First name of the patient</comment>
+      </column>
+    </property>
+    <property name="dateOfBirth" type="date">
+      <column name="date_of_birth" not-null="true">
+        <comment>Date of birth of patient</comment>
+      </column>
+    </property>
+  </class>
+  <database-object>
+    <create>
+      CREATE UNIQUE INDEX patient_code_unique ON patient (person_code)
+    </create>
+    <drop></drop>
+  </database-object>
+</hibernate-mapping>

@@ -39,4 +39,10 @@ public class PatientService {
             throw new MessageException("A patient with same Person code already exists.");
         }
     }
+
+    public void trimWhiteSpace(Patient patient) {
+        patient.setFirstName(patient.getFirstName().trim());
+        patient.setLastName(patient.getLastName().trim());
+        patient.setPersonCode(patient.getPersonCode().trim());
+    }
 }

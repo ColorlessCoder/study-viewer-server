@@ -33,19 +33,27 @@ public class StudyService {
         patientService.validatePatient(study.getPatient());
     }
 
+    private void trimWhiteSpaces(Study study) {
+        study.setStudyName(study.getStudyName().trim());
+        study.setStudyDescription(study.getStudyDescription() == null ? null: study.getStudyDescription().trim());
+        patientService.trimWhiteSpace(study.getPatient());
+    }
+
     public Study createStudy(Study study) throws MessageException {
-        validateStudy(study);
         study.setStudyPk(0);
-        study.setModifiedAt(LocalDateTime.now());
-        studyDAO.saveOrUpdate(study);
-        return study;
+        return saveOrUpdateStudy(study);
     }
 
     public Study updateStudy(Study study) throws MessageException {
         if(study.getStudyPk() == 0) {
             throw new MessageException("Cannot create in new Study");
         }
+        return saveOrUpdateStudy(study);
+    }
+
+    private Study saveOrUpdateStudy(Study study) throws MessageException {
         validateStudy(study);
+        trimWhiteSpaces(study);
         study.setModifiedAt(LocalDateTime.now());
         studyDAO.saveOrUpdate(study);
         return study;

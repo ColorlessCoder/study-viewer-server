@@ -34,9 +34,11 @@ public class StudyService {
     }
 
     private void trimWhiteSpaces(Study study) {
-        study.setStudyName(study.getStudyName().trim());
-        study.setStudyDescription(study.getStudyDescription() == null ? null: study.getStudyDescription().trim());
-        patientService.trimWhiteSpace(study.getPatient());
+        study.setStudyName(StringUtils.nullSafeTrim(study.getStudyName()));
+        study.setStudyDescription(StringUtils.nullSafeTrim(study.getStudyDescription()));
+        if(study.getPatient() != null) {
+            patientService.trimWhiteSpace(study.getPatient());
+        }
     }
 
     public Study createStudy(Study study) throws MessageException {
@@ -52,8 +54,8 @@ public class StudyService {
     }
 
     private Study saveOrUpdateStudy(Study study) throws MessageException {
-        validateStudy(study);
         trimWhiteSpaces(study);
+        validateStudy(study);
         study.setModifiedAt(LocalDateTime.now());
         studyDAO.saveOrUpdate(study);
         return study;

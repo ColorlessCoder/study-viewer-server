@@ -41,8 +41,8 @@ public class PatientService {
     }
 
     public void trimWhiteSpace(Patient patient) {
-        patient.setFirstName(patient.getFirstName().trim());
-        patient.setLastName(patient.getLastName().trim());
-        patient.setPersonCode(patient.getPersonCode().trim());
+        patient.setFirstName(StringUtils.nullSafeTrim(patient.getFirstName()));
+        patient.setLastName(StringUtils.nullSafeTrim(patient.getLastName()));
+        patient.setPersonCode(StringUtils.nullSafeTrim(patient.getPersonCode()));
     }
 }

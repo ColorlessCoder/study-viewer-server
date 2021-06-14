@@ -44,9 +44,10 @@
 ```bash
 xcopy "${clientDir}\build\" "${serverDir}\src\main\resources\static\" /E/y
 ```
-4. cd to the `${serverDir}` and run command `gradle bootJar`.
-5. After complete the run, the executable jar can be found in `${serverDir}/build/libs/`.
-6. For executing the jar enviornemt should have jdk or jre installed.
-7. Execute the jar with the following command `java -jar demo-0.0.1-SNAPSHOT.jar`
-8. The server can be stopped by pressing ctrl + c twice.
-9. The server will be available on http://localhost:8080
+4. Set application.properties as explained int 'Run the Project' section.
+5. cd to the `${serverDir}` and run command `gradle bootJar`.
+6. After complete the run, the executable jar can be found in `${serverDir}/build/libs/`.
+7. For executing the jar enviornemt should have jdk or jre installed.
+8. Execute the jar with the following command `java -jar demo-0.0.1-SNAPSHOT.jar`
+9. The server can be stopped by pressing ctrl + c twice.
+10. The server will be available on http://localhost:8080

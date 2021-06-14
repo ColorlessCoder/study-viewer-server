@@ -17,7 +17,7 @@
 ### MySQL
 1. Install MySql 8.0
 2. Keep MySql running
-3. Create a database
+3. Create a database (Don't create any tables)
 
 ## Run the project
 1. cd to the Project directory
@@ -28,6 +28,14 @@
 6. Accept firewall permission if prompted
 7. The server will be available on http://localhost:8080
 8. The server can be stopped by pressing ctrl + c twice.
+9. If you run the application for the first time, then tables will be created automatically by hibernate on run.
+
+## Test
+
+### Unit Test
+1.  cd to the Project directory and run command `gradle test`.
+2.  If any test fails then exception will be shown.
+3.  To see detailed test result, run command `gradle test -i`
 
 ## Create Executable Jar
 1. Build the UI side code first following the instructions given here: [link](https://github.com/ColorlessCoder/study-viewer-ui/blob/main/README.md#build-project)

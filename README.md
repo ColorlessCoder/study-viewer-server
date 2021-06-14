@@ -40,11 +40,13 @@
 ## Create Executable Jar
 1. Build the UI side code first following the instructions given here: [link](https://github.com/ColorlessCoder/study-viewer-ui/blob/main/README.md#build-project)
 2. For convenience lets say `${clientDir}` is the path containing [Client side code](https://github.com/ColorlessCoder/study-viewer-ui) and `${serverDir}` is the path containing [Server Side code](https://github.com/ColorlessCoder/study-viewer-server). 
-3. Copy all the content of the `${clientDir}/build/` directory
-4. Paste all the content to the `${serverDir}/src/main/resources/static/` directory
-5. cd to the `${serverDir}` and run command `gradle bootJar`.
-6. After complete the run, the executable jar can be found in `${serverDir}/build/libs/`.
-7. For executing the jar enviornemt should have jdk or jre installed.
-8. Execute the jar with the following command `java -jar demo-0.0.1-SNAPSHOT.jar`
-9. The server can be stopped by pressing ctrl + c twice.
-10. The server will be available on http://localhost:8080
+3. Copy all the content of the `${clientDir}/build/` directory to all the content to the `${serverDir}/src/main/resources/static/` directory. E.g. In windows
+```bash
+xcopy "${clientDir}\build\" "${serverDir}\src\main\resources\static\" /E/y
+```
+4. cd to the `${serverDir}` and run command `gradle bootJar`.
+5. After complete the run, the executable jar can be found in `${serverDir}/build/libs/`.
+6. For executing the jar enviornemt should have jdk or jre installed.
+7. Execute the jar with the following command `java -jar demo-0.0.1-SNAPSHOT.jar`
+8. The server can be stopped by pressing ctrl + c twice.
+9. The server will be available on http://localhost:8080
